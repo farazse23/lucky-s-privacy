@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Lucky's App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ── CSS Variables from AppColors ── */
+    :root {
+      --primary:        #2196F3;
+      --red:            #FF4B4B;
+      --red-light:      rgba(255,75,75,0.10);
+      --red-glow:       rgba(255,75,75,0.18);
+      --navy:           #4B4B99;
+      --text:           #212121;
+      --text-muted:     #999999;
+      --bg:             #F8F8F8;
+      --border:         rgba(196,196,196,0.20);
+      --divider:        #E8E8E8;
+      --card-bg:        rgba(248,248,248,0.90);
+      --story-start:    #FF8A00;
+      --story-end:      #FF3D3D;
+      --white:          #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated gradient orbs in background ── */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,75,75,0.07) 0%, transparent 70%);
+      top: -150px; right: -150px;
+      animation: orb1 12s ease-in-out infinite alternate;
+    }
+    body::after {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(75,75,153,0.06) 0%, transparent 70%);
+      bottom: 100px; left: -100px;
+      animation: orb2 16s ease-in-out infinite alternate;
+    }
+    @keyframes orb1 { from { transform: translate(0,0); } to { transform: translate(40px, 60px); } }
+    @keyframes orb2 { from { transform: translate(0,0); } to { transform: translate(-30px, -50px); } }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 60px 24px 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(248,248,248,0.60) 100%);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--story-start), var(--story-end));
+      margin-bottom: 20px;
+      box-shadow: 0 8px 28px rgba(255,75,75,0.30);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 28px rgba(255,75,75,0.30); }
+      50%       { box-shadow: 0 8px 42px rgba(255,75,75,0.50); }
+    }
+    .logo-ring svg { width: 32px; height: 32px; fill: var(--white); }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    header h1 span {
+      background: linear-gradient(90deg, var(--story-start), var(--story-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-sub {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .effective-badge {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 6px 18px;
+      border-radius: 100px;
+      background: var(--red-light);
+      border: 1px solid rgba(255,75,75,0.20);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--red);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    main {
+      position: relative;
+      z-index: 5;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── Table of contents ── */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 52px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+    .toc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-title::before {
+      content: '';
+      display: block;
+      width: 12px; height: 12px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--story-start), var(--story-end));
+      flex-shrink: 0;
+    }
+    .toc ol {
+      padding-left: 18px;
+      columns: 2;
+      column-gap: 24px;
+    }
+    @media (max-width: 520px) { .toc ol { columns: 1; } }
+    .toc li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .toc a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .toc a:hover { color: var(--red); }
+
+    /* ── Section cards ── */
+    .section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 36px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      transition: box-shadow 0.3s, transform 0.3s;
+      animation: fadeUp 0.5s ease both;
+    }
+    .section:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) { .section { padding: 24px 20px 20px; } }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section:nth-child(1)  { animation-delay: 0.05s; }
+    .section:nth-child(2)  { animation-delay: 0.10s; }
+    .section:nth-child(3)  { animation-delay: 0.15s; }
+    .section:nth-child(4)  { animation-delay: 0.20s; }
+    .section:nth-child(5)  { animation-delay: 0.25s; }
+    .section:nth-child(6)  { animation-delay: 0.30s; }
+    .section:nth-child(7)  { animation-delay: 0.35s; }
+    .section:nth-child(8)  { animation-delay: 0.40s; }
+    .section:nth-child(9)  { animation-delay: 0.45s; }
+    .section:nth-child(10) { animation-delay: 0.50s; }
+    .section:nth-child(11) { animation-delay: 0.55s; }
+    .section:nth-child(12) { animation-delay: 0.60s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      background: var(--red-light);
+      border: 1px solid rgba(255,75,75,0.15);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .section p {
+      font-size: 0.915rem;
+      color: #444;
+      margin-bottom: 12px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Bullet lists ── */
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+    .section ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.90rem;
+      color: #444;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--divider);
+    }
+    .section ul li:last-child { border-bottom: none; }
+    .section ul li::before {
+      content: '';
+      display: block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--story-start), var(--story-end));
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: var(--red-light);
+      border-left: 3px solid var(--red);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, var(--navy) 0%, #3a3a7a 100%);
+      border-radius: 20px;
+      padding: 36px;
+      color: var(--white);
+      margin-bottom: 24px;
+      box-shadow: 0 8px 32px rgba(75,75,153,0.25);
+      animation: fadeUp 0.5s 0.65s ease both;
+    }
+    .contact-card .section-title { color: var(--white); }
+    .contact-card p { color: rgba(255,255,255,0.75); margin-bottom: 8px; }
+    .contact-card a {
+      color: rgba(255,138,0,0.9);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-card a:hover { color: var(--story-start); }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 0.90rem;
+      color: rgba(255,255,255,0.80);
+    }
+    .contact-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 16px; height: 16px; fill: var(--white); }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 28px 24px 40px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(6px);
+    }
+    footer p {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    footer strong { color: var(--text); }
+
+    /* ── Scroll-to-top ── */
+    #back-to-top {
+      position: fixed;
+      bottom: 32px; right: 28px;
+      z-index: 100;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--story-start), var(--story-end));
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,75,75,0.35);
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    #back-to-top:hover { transform: scale(1.10); }
+    #back-to-top svg { width: 18px; height: 18px; fill: var(--white); }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      header { padding: 44px 20px 36px; }
+      main { padding: 36px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="logo-ring">
+      <!-- Shield icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1L3 5v6c0 5.25 3.75 10.15 9 11.35C17.25 21.15 21 16.25 21 11V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+      </svg>
+    </div>
+    <h1>Privacy <span>Policy</span></h1>
+    <p class="header-sub">Lucky's App · Your privacy, clearly explained</p>
+    <div class="effective-badge">Effective Date: 22/04/2026</div>
+  </header>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#s1">Information We Collect</a></li>
+        <li><a href="#s2">How We Use Information</a></li>
+        <li><a href="#s3">User Content & Moderation</a></li>
+        <li><a href="#s4">Sharing of Information</a></li>
+        <li><a href="#s5">Data Retention</a></li>
+        <li><a href="#s6">Account Deletion</a></li>
+        <li><a href="#s7">Your Controls</a></li>
+        <li><a href="#s8">Children</a></li>
+        <li><a href="#s9">International Transfers</a></li>
+        <li><a href="#s10">Security</a></li>
+        <li><a href="#s11">Changes to This Policy</a></li>
+        <li><a href="#s12">Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- Intro paragraph -->
+    <div class="section" style="animation-delay:0s">
+      <p><strong>Lucky's App</strong> ("we", "our", "us") values your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights when using the Lucky's App mobile and web applications.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="s1">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">Information We Collect</div>
+      </div>
+      <p>We may collect the following categories of information:</p>
+      <ul>
+        <li><strong>Account Information</strong> — name, email address, username, profile details, and password (managed by Firebase Authentication).</li>
+        <li><strong>User Content</strong> — posts, profile photos, media uploads, comments, messages, and story content.</li>
+        <li><strong>Usage Data</strong> — app interactions such as likes, follows, reports, blocked users, and in-app activity.</li>
+        <li><strong>Device / Technical Data</strong> — device identifiers, platform information, push notification token, and log/debug metadata.</li>
+        <li><strong>Purchase Data</strong> — in-app purchase product identifiers, transaction states, and coin-credit records. We do not collect full card details; payments are processed by Apple and Google.</li>
+      </ul>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="s2">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">How We Use Information</div>
+      </div>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Create and manage user accounts.</li>
+        <li>Provide core app features (posting, messaging, following, coins, stories, notifications).</li>
+        <li>Process and deliver purchased digital items (coins).</li>
+        <li>Enforce community safety (reporting, moderation, blocking).</li>
+        <li>Improve app reliability, performance, and security.</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="s3">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div class="section-title">User-Generated Content and Moderation</div>
+      </div>
+      <p>Lucky's App allows user-generated content. We provide tools including reporting and blocking. Content that violates our rules may be reviewed and actioned, including removal and account restrictions.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="s4">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div class="section-title">Sharing of Information</div>
+      </div>
+      <p>We do not sell personal information. We may share limited data with service providers that support app operation, such as:</p>
+      <ul>
+        <li><strong>Firebase</strong> — authentication, database, notifications, storage services.</li>
+        <li><strong>Cloudinary</strong> — media hosting and processing.</li>
+        <li><strong>Apple App Store / Google Play</strong> — purchase processing.</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="s5">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div class="section-title">Data Retention</div>
+      </div>
+      <p>We retain account and content data while your account is active, or as needed for legitimate business and legal purposes. You may request deletion by using the in-app account deletion feature.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="s6">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div class="section-title">Account Deletion</div>
+      </div>
+      <p>You can delete your account inside the app. Deletion removes your account and associated app data according to our backend deletion logic, subject to technical and legal retention constraints.</p>
+      <div class="highlight-box">
+        Navigate to <strong>Settings › Delete Account</strong> to permanently remove your account and associated data.
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="s7">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div class="section-title">Your Controls</div>
+      </div>
+      <p>You have the following controls at any time:</p>
+      <ul>
+        <li>Edit your profile information.</li>
+        <li>Block or unblock users.</li>
+        <li>Report abusive content.</li>
+        <li>Delete your account.</li>
+        <li>Manage notification preferences.</li>
+      </ul>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="s8">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <div class="section-title">Children</div>
+      </div>
+      <p>Our service is not intended for children under the age required by applicable law in your region. If you believe a child has provided personal data, contact us to request removal.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="s9">
+      <div class="section-header">
+        <div class="section-num">9</div>
+        <div class="section-title">International Transfers</div>
+      </div>
+      <p>Your information may be processed on servers located outside your country, where our service providers operate.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="s10">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title">Security</div>
+      </div>
+      <p>We use reasonable technical and organizational safeguards to protect your data. However, no online system is completely secure and we cannot guarantee absolute security.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="s11">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <div class="section-title">Changes to This Policy</div>
+      </div>
+      <p>We may update this Privacy Policy from time to time. We will post changes with an updated effective date at the top of this page. Continued use of the app after changes constitutes acceptance of the revised policy.</p>
+    </div>
+
+    <!-- 12 – Contact (special card) -->
+    <div class="contact-card" id="s12">
+      <div class="section-header">
+        <div class="section-num" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.2); color:#fff;">12</div>
+        <div class="section-title">Contact Us</div>
+      </div>
+      <p>For privacy questions, requests, or concerns, please reach out:</p>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <span><strong style="color:#fff;">Email:</strong>&nbsp;<a href="mailto:lucky@support.email">lucky@support.email</a></span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <span><strong style="color:#fff;">Company:</strong>&nbsp;Lucky's App</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© <span id="yr"></span> <strong>Lucky's App</strong>. All rights reserved.</p>
+    <p style="margin-top:6px;">This policy is effective as of the date listed above.</p>
+  </footer>
+
+  <!-- ── SCROLL TO TOP ── -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <script>
+    // Year in footer
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Scroll-to-top visibility
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
